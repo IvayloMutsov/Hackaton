@@ -2,7 +2,7 @@ using Hackaton.Data;
 using Hackaton.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using Hackaton.Data.Reader;
 namespace Hackaton
 {
     public class Program
@@ -10,7 +10,6 @@ namespace Hackaton
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -31,8 +30,18 @@ namespace Hackaton
                         opt.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
                     }
                 );
-
+            
             var app = builder.Build();
+            //test db initializer
+            using (var scope = app.Services.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                if (!dbContext.Proffessors.Any())
+                {
+                    DbInitializer.SeedProffessors(dbContext);
+                }            
+            }
+            //end test
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

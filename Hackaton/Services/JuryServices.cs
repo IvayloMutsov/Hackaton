@@ -48,7 +48,42 @@ namespace Hackaton.Services
                 _ => 3
             };
 
-            
+            var selected = new List<Proffessors>();
+
+            selected.AddRange(external.Take(minProf));
+
+            int profs = selected.Count(p => p.AcademicRank == "професор");
+
+            if (profs < minProf)
+            {
+                var missing = minProf - profs;
+                var more = all
+                    .Where(p => p.AcademicRank == "професор" && !selected.Contains(p))
+                    .Take(missing);
+                selected.AddRange(more);
+            }
+
+            foreach (var p in all)
+            {
+                if (selected.Count >= totalMembers)
+                    break;
+                if (!selected.Contains(p))
+                    selected.Add(p);
+            }
+
+            var reserved = new List<Proffessors>();
+            var extReserve = external.FirstOrDefault(p => !selected.Contains(p));
+            var intReserve = local.FirstOrDefault(p => !selected.Contains(p));
+            if(intReserve != null)
+            {
+                reserved.Add(intReserve);
+            }
+            if(extReserve != null)
+            {
+                reserved.Add(extReserve);
+            }
+
+            return (selected, reserved);
         }
     }
 }

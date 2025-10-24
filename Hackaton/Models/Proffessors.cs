@@ -30,5 +30,6 @@ namespace Hackaton.Models
         public int ParticipationCounter { get; set; }
 
         public bool UniIsLocal { get; set; }
+        public bool IsReserve { get; set; }
     }
 }

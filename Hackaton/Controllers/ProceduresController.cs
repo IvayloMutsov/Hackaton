@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hackaton.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class ProceduresController : Controller
     {
         private readonly JuryServices _juryServices;

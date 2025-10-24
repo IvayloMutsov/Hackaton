@@ -15,10 +15,13 @@ namespace Hackaton
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddControllersWithViews();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
@@ -34,6 +37,11 @@ namespace Hackaton
                 app.UseHsts();
             }
 
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -49,4 +57,6 @@ namespace Hackaton
             app.Run();
         }
     }
+            //Install - Package Swashbuckle.AspNetCore
+            //dotnet add package Swashbuckle.AspNetCore
 }

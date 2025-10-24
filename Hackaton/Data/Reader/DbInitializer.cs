@@ -9,13 +9,12 @@ namespace Hackaton.Data.Reader
     {
         public static void SeedProffessors(ApplicationDbContext context)
         {
-            //ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Required
-
-            string filePath = "Database.xlsx";
+            ExcelPackage.License.SetNonCommercialPersonal("ivo");
+            string filePath = "C:\\Users\\igmut\\source\\repos\\Hackaton\\Hackaton\\Data\\Database.xlsx";
 
             using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
-                var worksheet = package.Workbook.Worksheets[0];
+                var worksheet = package.Workbook.Worksheets["Professors"];
                 int rowCount = worksheet.Dimension.Rows;
                 int colCount = worksheet.Dimension.Columns;
 
@@ -63,7 +62,6 @@ namespace Hackaton.Data.Reader
                                 break;
                             default:
                                 throw new Exception("Data is in invalid format!");
-                                break;
                         }
                     }
                     context.Proffessors.Add(prof);

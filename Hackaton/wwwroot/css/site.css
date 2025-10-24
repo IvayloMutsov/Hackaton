@@ -31,3 +31,12 @@ body {
     background-color: #431264;
     text-align: center;
 }
+.btn-create {
+    background-color: #431264;
+    color: white;
+    font-size: 25px;
+}
+.btn-create:hover {
+    background-color: #258cfb;
+    color: white;
+}

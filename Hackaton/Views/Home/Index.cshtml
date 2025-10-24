@@ -3,8 +3,11 @@
     ViewData["Title"] = "Начало";
 }
 
+<head>
+    <link href="css/site.css" rel="stylesheet"/>
+</head>
 <div class="text-center">
-    <p>Цъкни <a href="/swagger">Бутона</a>.</p>
+    <a href="/swagger" class="btn-create btn mt-5">Създаване</a>
 
     <div>
         @foreach (var procedure in Model)

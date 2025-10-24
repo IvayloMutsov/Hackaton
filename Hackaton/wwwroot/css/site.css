@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar {
+    background-color: #431264 !important;
+}
+.nav-image{
+    width: 20%;
+}

@@ -1,6 +1,14 @@
 ﻿namespace Hackaton.Data.Reader
 {
-    public class DbInitializer
+    public static class DbInitializer
     {
+        public static void SeedProffessors()
+        {
+            StreamReader reader = new StreamReader("Database.xlsx");
+            using (reader)
+            {
+
+            }
+        }
     }
 }

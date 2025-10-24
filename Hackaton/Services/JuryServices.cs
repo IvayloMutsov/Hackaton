@@ -1,4 +1,5 @@
 ﻿using Hackaton.Data;
+using Hackaton.Models;
 
 namespace Hackaton.Services
 {
@@ -11,6 +12,25 @@ namespace Hackaton.Services
             _context = context;
         }
 
+        public(List<Proffessors> Members, List<Proffessors> Reserved) SelectJuryMembers(Procedures procedure)
+        {
+            var all = _context.Proffessors.ToList();
+            var local = _context.Proffessors.Where(l => l.UniIsLocal == true).ToList();
+            var external = _context.Proffessors
+                .Where(l => l.UniIsLocal == false)
+                .OrderByDescending(l => l.Distance)
+                .ToList();
 
+            int totalMembers = procedure.ProcedureType switch
+            {
+                "доктор" => 5,
+                "доцент" => 7,
+                "доктор на науките" or "ДН" => 7,
+                "професор" => 7,
+                _ => 7
+            };
+
+
+        }
     }
 }

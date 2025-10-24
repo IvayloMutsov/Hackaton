@@ -27,3 +27,7 @@ body {
 .nav-image{
     width: 100px;
 }
+.footer{
+    background-color: #431264;
+    text-align: center;
+}

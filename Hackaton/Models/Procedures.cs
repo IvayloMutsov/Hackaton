@@ -16,5 +16,6 @@ namespace Hackaton.Models
         public int? ProfessorId7 { get; set; }
         public int? ReserveInternalId { get; set; }
         public int? ReserveExternalId { get; set; }
+        public object RequiredMembers { get; internal set; }
     }
 }

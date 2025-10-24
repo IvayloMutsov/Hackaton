@@ -74,10 +74,12 @@ namespace Hackaton.Services
             var reserved = new List<Proffessors>();
             var extReserve = external.FirstOrDefault(p => !selected.Contains(p));
             var intReserve = local.FirstOrDefault(p => !selected.Contains(p));
+
             if(intReserve != null)
             {
                 reserved.Add(intReserve);
             }
+
             if(extReserve != null)
             {
                 reserved.Add(extReserve);

@@ -37,11 +37,12 @@ namespace Hackaton.Controllers
                         prof.PrevParticipationDate = prof.LastParticipationDate;
                         prof.LastParticipationDate = DateTime.Now;
                     }
+                    else
+                    {
+                        prof.ConsecutiveCounter = 0;
+                    }
                 }
-                else
-                {
-                    prof.ConsecutiveCounter = 0;
-                }
+                _context.Update(prof);
             }
 
             var procedure = new Procedures

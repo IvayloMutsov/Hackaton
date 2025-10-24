@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Hackaton.Data.Migrations
+namespace Hackaton.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251024104037_ChangeToProfessors")]
-    partial class ChangeToProfessors
+    [Migration("20251024122444_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

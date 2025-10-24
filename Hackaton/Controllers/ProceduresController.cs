@@ -20,6 +20,7 @@ namespace Hackaton.Controllers
         {
             var allProffesors = _context.Proffessors.ToList();
             var(members, reserved)= _juryServices.SelectJuryMembers(dto);
+            return Ok();
         }
 
         public IActionResult Index()

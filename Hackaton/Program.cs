@@ -57,6 +57,4 @@ namespace Hackaton
             app.Run();
         }
     }
-            //Install - Package Swashbuckle.AspNetCore
-            //dotnet add package Swashbuckle.AspNetCore
 }

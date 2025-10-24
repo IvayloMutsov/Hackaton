@@ -30,7 +30,25 @@ namespace Hackaton.Services
                 _ => 7
             };
 
+            int minProf = procedure.ProcedureType switch
+            {
+                "доктор" => 1,
+                "доцент" => 3,
+                "доктор на науките" or "ДН" => 3,
+                "професор" => 4,
+                _ => 3
+            };
 
+            int minExt = procedure.ProcedureType switch
+            {
+                "доктор" => 3,
+                "доцент" => 3,
+                "доктор на науките" or "ДН" => 4,
+                "професор" => 3,
+                _ => 3
+            };
+
+            
         }
     }
 }

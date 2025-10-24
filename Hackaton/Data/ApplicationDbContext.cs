@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Hackaton.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hackaton.Data
@@ -10,6 +11,6 @@ namespace Hackaton.Data
         {
         }
 
-
+        DbSet<Procedures> Procedures { get; set; }
     }
 }

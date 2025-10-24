@@ -40,3 +40,37 @@ body {
     background-color: #258cfb;
     color: white;
 }
+/* Таблица с основен цвят #431264 */
+.styled-table {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(67, 18, 100, 0.3);
+    background-color: #fff;
+}
+
+.table-header {
+    background-color: #431264 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.styled-table th,
+.styled-table td {
+    vertical-align: middle !important;
+    padding: 12px 10px;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f8f5fb;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e8d9f5;
+    transition: background-color 0.3s ease;
+}
+
+.styled-table td:first-child {
+    font-weight: bold;
+    color: #431264;
+}

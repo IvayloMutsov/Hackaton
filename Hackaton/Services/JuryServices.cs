@@ -1,4 +1,5 @@
-﻿using Hackaton.Data;
+﻿using System.Runtime.InteropServices.JavaScript;
+using Hackaton.Data;
 using Hackaton.Models;
 
 namespace Hackaton.Services
@@ -14,7 +15,8 @@ namespace Hackaton.Services
 
         public(List<Proffessors> Members, List<Proffessors> Reserved) SelectJuryMembers(Procedures procedure)
         {
-            var all = _context.Proffessors.ToList();
+            var all = _context.Proffessors.Where(a => a.ConsecutiveCounter < 2 ||
+                                                      (a.LastParticipationDate == procedure.Date)).ToList();
             var local = _context.Proffessors.Where(l => l.UniIsLocal == true).ToList();
             var external = _context.Proffessors
                 .Where(l => l.UniIsLocal == false)

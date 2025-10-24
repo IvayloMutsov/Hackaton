@@ -1,7 +1,17 @@
-﻿@{
+﻿@model IEnumerable<Procedures>;
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <p>Цъкни <a href="/swagger">Бутона</a>.</p>
+    
+    <div>
+        @foreach (var procedure in Model)
+        {
+            <table>
+                <tr></tr>
+            </table>
+        }
+    </div>
 </div>

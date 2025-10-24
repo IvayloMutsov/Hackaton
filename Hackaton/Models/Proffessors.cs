@@ -28,6 +28,8 @@ namespace Hackaton.Models
 
         [DefaultValue(0)]
         public int ParticipationCounter { get; set; }
+        [DefaultValue(0)]
+        public int ConsecutiveCounter { get; set; }
 
         public bool UniIsLocal { get; set; }
         public bool IsReserve { get; set; }
